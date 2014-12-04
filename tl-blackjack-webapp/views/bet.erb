@@ -1,0 +1,21 @@
+<h3>Make a bet for this round.</h3>
+<h4><%= session[:player_name] %> has &pound;<%= session[:cash].to_i %> to bet with</h4>
+
+        <div class="bet_options">
+          <h6>Place your Bet</h6>
+          <form action="/bet" method='post'>
+            <input type="text" placeholder="Bet amount .." name="bet_amount" class="input-small" />
+            <br />
+            <input type="submit" value="Place Bet" class ="btn btn-success btn-small" /> 
+          </form>
+          <h6>Or</h6>
+          <form action="/bet" method="post">
+            <button class="btn btn-success" type="submit" name="bet_amount" value="<%= session[:cash] * 0.1 %>" >10%</button>
+            <button class="btn btn-success" type="submit" name="bet_amount" value="<%= session[:cash] * 0.25 %>" >25%</button>
+            <button class="btn btn-success" type="submit" name="bet_amount" value="<%= session[:cash] * 0.5 %>" >50%</button>
+            <button class="btn btn-success" type="submit" name="bet_amount" value="<%= session[:cash] %>" >ALL IN!</button>
+          </form> 
+        </div>
+          <% if @error %>
+            <h6 class="error"><%= @error %></h6>
+          <% end %>

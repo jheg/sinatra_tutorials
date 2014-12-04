@@ -1,0 +1,8 @@
+<h5>Thanks for playing Blackjack!</h5>
+<% if session[:cash] > 500 %> 
+    <h6>Be sure to spend some of your winnings in the gift shop <%= session[:player_name]%></h6>
+<% elsif session[:cash] == 0 %> 
+    <h6>Do you want me to get you a glass of water?</h6>
+<% elsif session[:cash] < 500 %>
+    <h6>You didn't lose all your money so it's not all bad. See you again soon?</h6>   
+<% end %> 
